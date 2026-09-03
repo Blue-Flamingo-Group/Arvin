@@ -157,10 +157,9 @@ img{max-width:100%;height:auto;display:block}
   min-height:64px;display:flex;align-items:center;gap:16px;flex-wrap:wrap
 }
 .nav__brand{display:flex;align-items:center;gap:11px;color:#fff;text-decoration:none;padding:10px 0;margin-right:auto}
-.nav__seal{
-  width:34px;height:34px;flex:none;border-radius:50%;
-  border:2px solid var(--gold);display:grid;place-items:center;
-  font-size:11px;font-weight:900;letter-spacing:.02em;color:var(--gold);background:var(--navy-950)
+.nav__mark{
+  height:30px;width:auto;flex:none;background:#fff;
+  padding:4px 7px;border-radius:5px;display:block
 }
 .nav__name{font-weight:900;font-size:15px;line-height:1.15;letter-spacing:-.01em}
 .nav__name span{display:block;font-weight:400;font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--slate-200)}
@@ -232,16 +231,9 @@ img{max-width:100%;height:auto;display:block}
    README "Photography". Keep the overlay so headline contrast holds. */
 .hero__ph{
   position:absolute;inset:0;
-  background:
-    linear-gradient(115deg,var(--navy-950) 0%,var(--navy-900) 42%,var(--navy-800) 100%);
+  background:var(--navy-950) url("assets/img/hero-arvin.jpg") center 38% / cover no-repeat;
 }
-.hero__ph::after{
-  content:"";position:absolute;inset:0;opacity:.16;
-  background:
-    repeating-linear-gradient(102deg,transparent 0 62px,rgba(253,136,36,.55) 62px 64px),
-    repeating-linear-gradient(12deg,transparent 0 90px,rgba(143,199,67,.4) 90px 92px);
-}
-.hero__scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,23,48,.72) 0%,rgba(12,23,48,.86) 100%)}
+.hero__scrim{position:absolute;inset:0;background:linear-gradient(100deg,rgba(12,23,48,.93) 0%,rgba(12,23,48,.86) 46%,rgba(12,23,48,.66) 100%)}
 /* .hero__in also carries .wrap; the padding shorthand must keep .wrap's
    horizontal gutter or the hero text runs to the viewport edge below 1160px */
 .hero__in{position:relative;padding:clamp(44px,7vw,86px) var(--gut) 0}
@@ -349,6 +341,7 @@ img{max-width:100%;height:auto;display:block}
 .panel__ph{
   aspect-ratio:16/10;background:var(--navy-900);position:relative;display:grid;place-items:center;padding:18px;text-align:center
 }
+.panel__img{aspect-ratio:16/10;width:100%;object-fit:cover;background:var(--navy-900)}
 .panel__ph::after{
   content:"";position:absolute;inset:0;opacity:.2;
   background:repeating-linear-gradient(135deg,transparent 0 14px,rgba(255,255,255,.5) 14px 15px)
@@ -544,8 +537,12 @@ mark{background:#ffe9a8;color:inherit;padding:0 1px;border-radius:2px}
 <header class="nav">
   <div class="nav__in">
     <a class="nav__brand" href="#top">
-      <!-- PLACEHOLDER: replace with the City seal. See README "Photography". -->
-      <span class="nav__seal" aria-hidden="true">SEAL</span>
+      <!-- Client-supplied Measure H lockup. It is navy-and-green on a solid
+           white background, so it cannot sit directly on the navy bar — it
+           rides a white chip. A transparent-background version would let us
+           drop the chip. -->
+      <img class="nav__mark" src="assets/img/logo-measure-h.png"
+           alt="Measure H" width="523" height="211" />
       <span class="nav__name">City of Arvin<span data-i18n="nav.sub">Sales Tax Measure Information</span></span>
     </a>
 
@@ -715,12 +712,12 @@ mark{background:#ffe9a8;color:inherit;padding:0 1px;border-radius:2px}
          text on the <img>. Required shots are listed in README "Photography". -->
     <div class="grid grid--3" style="margin-top:34px">
       <article class="panel">
-        <div class="panel__ph"><span class="panel__phl">Photo pending<br>Police vehicle in the community</span></div>
+        <img class="panel__img" src="assets/img/panel-police.jpg" alt="A police officer speaking with several children on a residential street." loading="lazy" />
         <div class="panel__b">
           <h3 data-i18n="s4.p1.t">Police and Neighborhood Safety</h3>
           <p data-i18n="s4.p1.b">Responding to emergency and non-emergency calls, patrols, investigations, traffic safety, crime prevention and maintaining public order.</p>
         </div>
-        <p class="panel__cap" data-i18n="s4.p1.c">Caption pending — supplied with the photograph.</p>
+        <p class="panel__cap" data-i18n="s4.p1.c">A police officer speaking with children in a residential neighborhood.</p>
       </article>
       <article class="panel">
         <div class="panel__ph"><span class="panel__phl">Photo pending<br>Fire or emergency apparatus</span></div>
@@ -739,20 +736,20 @@ mark{background:#ffe9a8;color:inherit;padding:0 1px;border-radius:2px}
         <p class="panel__cap" data-i18n="s4.p3.c">Caption pending — supplied with the photograph.</p>
       </article>
       <article class="panel">
-        <div class="panel__ph"><span class="panel__phl">Photo pending<br>A recognizable Arvin street</span></div>
+        <img class="panel__img" src="assets/img/panel-roads.jpg" alt="A two-lane road running out of town toward snow-dusted mountains under heavy cloud." loading="lazy" />
         <div class="panel__b">
           <h3 data-i18n="s4.p4.t">Streets and Roads</h3>
           <p data-i18n="s4.p4.b">Street maintenance, repairs, signs, markings, traffic safety and other transportation needs.</p>
         </div>
-        <p class="panel__cap" data-i18n="s4.p4.c">Caption pending — supplied with the photograph.</p>
+        <p class="panel__cap" data-i18n="s4.p4.c">A local road leading out toward the mountains.</p>
       </article>
       <article class="panel">
-        <div class="panel__ph"><span class="panel__phl">Photo pending<br>An Arvin park or City facility</span></div>
+        <img class="panel__img" src="assets/img/panel-parks.jpg" alt="A family walking together outdoors on a grassy path beside water." loading="lazy" />
         <div class="panel__b">
           <h3 data-i18n="s4.p5.t">Parks and Public Facilities</h3>
           <p data-i18n="s4.p5.b">Parks, recreation spaces, City buildings, grounds and public areas.</p>
         </div>
-        <p class="panel__cap" data-i18n="s4.p5.c">Caption pending — supplied with the photograph.</p>
+        <p class="panel__cap" data-i18n="s4.p5.c">Families using outdoor recreation space.</p>
       </article>
       <article class="panel">
         <div class="panel__ph"><span class="panel__phl">Photo pending<br>A youth or senior program</span></div>
