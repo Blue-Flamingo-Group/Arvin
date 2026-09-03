@@ -18,7 +18,7 @@ Six keys are already filled in from the Spanish nav labels the City supplied in 
 > **One length constraint.** The key `nav.sub` is the small line under "City of
 > Arvin" in the site header. It sits in a fixed-width space, so the Spanish must
 > be **short — roughly 35 characters or fewer**. Something along the lines of
-> "Medida de Impuesto sobre las Ventas" fits; a full translation of the English
+> "Medida H — Información" fits easily; a full translation of the English
 > ("Information about the Sales Tax Measure") does not, and would be truncated.
 > Every other string on this page can be as long as it needs to be.
 
@@ -27,7 +27,7 @@ Six keys are already filled in from the Spanish nav labels the City supplied in 
 | Key | English |
 |---|---|
 | `a11y.skip` | Skip to main content |
-| `nav.sub` | Sales Tax Measure Information |
+| `nav.sub` | Measure H — Sales Tax Information |
 | `nav.glance` | At a Glance |
 | `nav.services` | City Services |
 | `nav.cost` | The Cost |

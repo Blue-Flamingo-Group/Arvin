@@ -93,7 +93,17 @@ Search `index.html` for `todo` (the class) or `PENDING` to find every one.
    expenditure categories, and do not estimate. Filling a row is a one-line
    change — see the comment block above the chart. The accessible table below
    the chart carries the same figures and must be updated with it.
-2. **Photography** — the hero and all six service panels are placeholder blocks.
+2. **Photography** — the agency supplied the hero, the police panel, the roads
+   panel and the parks panel on 2026-09-03, and confirmed they are cleared for
+   use; that authorization sits with the agency and the City. The files are
+   stock preview comps (612px Getty/iStock preview size; the unused almond-orchard
+   and aerial-homes files carry a visible Shutterstock ID and a CRMLS watermark
+   respectively, which is why neither is placed). **Three panels are still
+   unfilled because no supplied photo matches the subject:** fire or emergency
+   apparatus, communications/dispatch equipment, and a youth or senior program.
+   Unused originals are kept in `assets/img/_originals/`.
+
+   Original note — the hero and all six service panels are placeholder blocks.
    Required shots: a wide Arvin photo (streetscape, aerial, or a three-image
    panorama); then a police vehicle in the community, fire or emergency
    apparatus, communications equipment, a recognizable local street, an Arvin
