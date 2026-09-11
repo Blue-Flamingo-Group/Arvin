@@ -141,3 +141,19 @@ in the copy and reaches the expiration question through its synonym list.
 This build is **noindexed in two places** — the `robots` meta in `index.html` and
 the `X-Robots-Tag` header in `vercel.json`. Remove **both** before any public
 launch, and set `canonical` / `og:url` to the real address at the same time.
+
+## Before making this repository public
+
+`assets/img/_originals/` is tracked in git history. Review it before changing
+this repo's visibility — removing the files in a later commit does **not**
+remove them from history.
+
+It holds the ten photographs the agency supplied. Several are stock preview
+comps and two carry visible watermarks (a Shutterstock ID and a CRMLS
+real-estate mark). They were cleared for use on this site; that is not the same
+as clearance to republish the source files.
+
+If this repo is ever made public, strip that folder from history first
+(`git filter-repo --path assets/img/_originals --invert-paths`) rather than
+deleting it in a new commit.
+
