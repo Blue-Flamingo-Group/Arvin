@@ -107,9 +107,13 @@ Search `index.html` for `todo` (the class) or `PENDING` to find every one.
    photo was replaced on 2026-09-13 with a new client-supplied photo of an
    Arvin road at sunset (`assets/img/panel-roads.jpg`, cropped and resized
    from the supplied original to the panel's 16:10 frame); the client
-   confirmed it is cleared for use (2026-09-13). **One panel is still
-   unfilled because no supplied photo matches the subject:** a youth or
-   senior program. Unused originals are kept in `assets/img/_originals/`.
+   confirmed it is cleared for use (2026-09-13). The Youth, Senior and
+   Community Services panel was filled on 2026-09-13 with a supplied photo
+   of a playground and palm trees (`assets/img/panel-youth.jpg`, cropped
+   and resized to the panel's 16:10 frame to favor the playground and
+   palms over sky); the client confirmed it is cleared for use
+   (2026-09-13). **All six service panels are now filled.** Unused
+   originals are kept in `assets/img/_originals/`.
 
    Original note — the hero and all six service panels are placeholder blocks.
    Required shots: a wide Arvin photo (streetscape, aerial, or a three-image
