@@ -55,7 +55,7 @@ partial Spanish on an official election page is worse than none.
 
 Every translatable string carries a `data-i18n` key. To publish Spanish:
 
-1. Send `docs/es-translation-worksheet.md` to the translator (202 keyed strings
+1. Send `docs/es-translation-worksheet.md` to the translator (198 keyed strings
    plus the 31 FAQ pairs). The spec requires professional translation reviewed by
    someone fluent in municipal and election terminology — not machine output.
 2. Paste the returned strings into the `ES` object near the bottom of

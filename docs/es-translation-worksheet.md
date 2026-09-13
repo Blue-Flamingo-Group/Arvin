@@ -22,7 +22,7 @@ Six keys are already filled in from the Spanish nav labels the City supplied in 
 > ("Information about the Sales Tax Measure") does not, and would be truncated.
 > Every other string on this page can be as long as it needs to be.
 
-## Part 1 — Page strings (202)
+## Part 1 — Page strings (198)
 
 | Key | English |
 |---|---|
@@ -105,22 +105,16 @@ Six keys are already filled in from the Spanish nav labels the City supplied in 
 | `s4.lede` | Because the proposal is a general tax, the revenue would be deposited into the City's General Fund and could be used for any legitimate general municipal purposes. The ballot question identifies the following examples of service areas. |
 | `s4.p1.t` | Police and Neighborhood Safety |
 | `s4.p1.b` | Responding to emergency and non-emergency calls, patrols, investigations, traffic safety, crime prevention and maintaining public order. |
-| `s4.p1.c` | Caption pending — supplied with the photograph. |
 | `s4.p2.t` | Fire and Emergency Protection |
 | `s4.p2.b` | The City contracts with Kern County for fire protection. Additional funding would support maintaining that agreement. |
-| `s4.p2.c` | Caption pending — supplied with the photograph. |
 | `s4.p3.t` | 911 Emergency Response |
 | `s4.p3.b` | Depends on trained personnel, reliable communications, functioning equipment and sufficient resources. |
-| `s4.p3.c` | Caption pending — supplied with the photograph. |
 | `s4.p4.t` | Streets and Roads |
 | `s4.p4.b` | Street maintenance, repairs, signs, markings, traffic safety and other transportation needs. |
-| `s4.p4.c` | Caption pending — supplied with the photograph. |
 | `s4.p5.t` | Parks and Public Facilities |
 | `s4.p5.b` | Parks, recreation spaces, City buildings, grounds and public areas. |
-| `s4.p5.c` | Caption pending — supplied with the photograph. |
 | `s4.p6.t` | Youth, Senior and Community Services |
 | `s4.p6.b` | The ballot question identifies youth and senior services among the general services the measure could support. |
-| `s4.p6.c` | Caption pending — supplied with the photograph. |
 | `s4.clarify` | Approval of the measure would not guarantee a specific amount for any individual service or department. Annual funding decisions would continue to be made through the City's public budgeting process. |
 | `s5.eyebrow` | Section 4 |
 | `s5.h2` | Understanding the City's Budget |
