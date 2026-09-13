@@ -100,9 +100,8 @@ Search `index.html` for `todo` (the class) or `PENDING` to find every one.
    and aerial-homes files carry a visible Shutterstock ID and a CRMLS watermark
    respectively, which is why neither is placed). The fire panel was filled on
    2026-09-13 with a supplied photo of an Arvin ladder fire truck
-   (`assets/img/panel-fire.jpg`); **rights clearance for this file has not yet
-   been confirmed** and must be recorded before launch, same as the other
-   panels. **Two panels are still unfilled because no supplied photo matches
+   (`assets/img/panel-fire.jpg`); the client confirmed it is cleared for use
+   (2026-09-13). **Two panels are still unfilled because no supplied photo matches
    the subject:** communications/dispatch equipment and a youth or senior
    program. Unused originals are kept in `assets/img/_originals/`.
 
