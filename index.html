@@ -773,9 +773,11 @@ mark{background:#ffe9a8;color:inherit;padding:0 1px;border-radius:2px}
 
     <!-- ====================================================================
          BUDGET BAR CHART — DATA FILL REQUIRED BEFORE LAUNCH.
-         Only the Police figure is carried from the spec, and the spec flags it
-         as coming from the PROPOSED budget. Every other category is an empty
-         track awaiting the FINAL ADOPTED figures.
+         Fire, Parks, Administration and finance, Public works, and Other
+         essential services now carry the FINAL ADOPTED 2026–27 figures
+         (client-supplied 2026-09-13). Police still carries the PROPOSED
+         budget figure from the spec ($3.78 million) — the City still owes
+         the final adopted Police figure; see README "Placeholders".
          To fill a row: put the dollar amount in .chart__v, set the bar's
          inline width to (amount / largest amount * 100)%, and delete the
          "pending" class + label. Do not omit any large expenditure category —
@@ -791,28 +793,28 @@ mark{background:#ffe9a8;color:inherit;padding:0 1px;border-radius:2px}
       </div>
       <div class="chart__row">
         <div class="chart__lab" data-i18n="s5.b2">Fire contract (Kern County)</div>
-        <div class="chart__track"><div class="chart__bar chart__bar--alt" style="width:0"></div><span class="chart__v chart__v--out todo" style="--w:0px" data-i18n="s5.pend">Figure pending</span></div>
+        <div class="chart__track"><div class="chart__bar chart__bar--alt" style="width:30.4%"></div><span class="chart__v chart__v--out" style="--w:30.4%">$1,148,836</span></div>
       </div>
       <div class="chart__row">
         <div class="chart__lab" data-i18n="s5.b3">Parks, buildings and grounds</div>
-        <div class="chart__track"><div class="chart__bar chart__bar--alt" style="width:0"></div><span class="chart__v chart__v--out todo" style="--w:0px" data-i18n="s5.pend">Figure pending</span></div>
+        <div class="chart__track"><div class="chart__bar chart__bar--alt" style="width:18.8%"></div><span class="chart__v chart__v--out" style="--w:18.8%">$709,481</span></div>
       </div>
       <div class="chart__row">
         <div class="chart__lab" data-i18n="s5.b4">Administration and finance</div>
-        <div class="chart__track"><div class="chart__bar chart__bar--alt" style="width:0"></div><span class="chart__v chart__v--out todo" style="--w:0px" data-i18n="s5.pend">Figure pending</span></div>
+        <div class="chart__track"><div class="chart__bar chart__bar--alt" style="width:64.3%"></div><span class="chart__v chart__v--out" style="--w:64.3%">$2,431,096</span></div>
       </div>
       <div class="chart__row">
         <div class="chart__lab" data-i18n="s5.b5">Public works</div>
-        <div class="chart__track"><div class="chart__bar chart__bar--alt" style="width:0"></div><span class="chart__v chart__v--out todo" style="--w:0px" data-i18n="s5.pend">Figure pending</span></div>
+        <div class="chart__track"><div class="chart__bar chart__bar--alt" style="width:1.9%"></div><span class="chart__v chart__v--out" style="--w:1.9%">$70,519</span></div>
       </div>
       <div class="chart__row">
         <div class="chart__lab" data-i18n="s5.b6">Other essential services</div>
-        <div class="chart__track"><div class="chart__bar chart__bar--alt" style="width:0"></div><span class="chart__v chart__v--out todo" style="--w:0px" data-i18n="s5.pend">Figure pending</span></div>
+        <div class="chart__track"><div class="chart__bar chart__bar--alt" style="width:23.9%"></div><span class="chart__v chart__v--out" style="--w:23.9%">$902,511</span></div>
       </div>
 
       <p class="chart__foot">
         <span data-i18n="s5.chart.f">Fiscal year 2026–27 · Source: City of Arvin adopted annual budget.</span>
-        <span class="todo"> [PENDING — this chart is incomplete until the City supplies the final adopted figures for every category.]</span>
+        <span class="todo"> [PENDING — Police is still the proposed-budget figure; the City must supply the final adopted Police figure before launch.]</span>
       </p>
     </div>
 
@@ -823,11 +825,11 @@ mark{background:#ffe9a8;color:inherit;padding:0 1px;border-radius:2px}
         <thead><tr><th scope="col" data-i18n="s5.tbl.h1">Category</th><th scope="col" data-i18n="s5.tbl.h2">Adopted 2026–27 amount</th></tr></thead>
         <tbody>
           <tr><th scope="row" data-i18n="s5.b1">Police</th><td>$3.78 million</td></tr>
-          <tr><th scope="row" data-i18n="s5.b2">Fire contract (Kern County)</th><td class="todo" data-i18n="s5.pend">Figure pending</td></tr>
-          <tr><th scope="row" data-i18n="s5.b3">Parks, buildings and grounds</th><td class="todo" data-i18n="s5.pend">Figure pending</td></tr>
-          <tr><th scope="row" data-i18n="s5.b4">Administration and finance</th><td class="todo" data-i18n="s5.pend">Figure pending</td></tr>
-          <tr><th scope="row" data-i18n="s5.b5">Public works</th><td class="todo" data-i18n="s5.pend">Figure pending</td></tr>
-          <tr><th scope="row" data-i18n="s5.b6">Other essential services</th><td class="todo" data-i18n="s5.pend">Figure pending</td></tr>
+          <tr><th scope="row" data-i18n="s5.b2">Fire contract (Kern County)</th><td>$1,148,836</td></tr>
+          <tr><th scope="row" data-i18n="s5.b3">Parks, buildings and grounds</th><td>$709,481</td></tr>
+          <tr><th scope="row" data-i18n="s5.b4">Administration and finance</th><td>$2,431,096</td></tr>
+          <tr><th scope="row" data-i18n="s5.b5">Public works</th><td>$70,519</td></tr>
+          <tr><th scope="row" data-i18n="s5.b6">Other essential services</th><td>$902,511</td></tr>
         </tbody>
       </table>
     </div>

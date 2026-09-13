@@ -55,7 +55,7 @@ partial Spanish on an official election page is worse than none.
 
 Every translatable string carries a `data-i18n` key. To publish Spanish:
 
-1. Send `docs/es-translation-worksheet.md` to the translator (198 keyed strings
+1. Send `docs/es-translation-worksheet.md` to the translator (197 keyed strings
    plus the 31 FAQ pairs). The spec requires professional translation reviewed by
    someone fluent in municipal and election terminology — not machine output.
 2. Paste the returned strings into the `ES` object near the bottom of
@@ -85,14 +85,17 @@ because Spanish needs 1044.7px and 1024 misses it — so 1024-1099 uses the draw
 
 Search `index.html` for `todo` (the class) or `PENDING` to find every one.
 
-1. **Budget bar chart (§5) — the big one.** Only the Police figure ($3.78M) is
-   populated, and the spec flags it as coming from the *proposed* budget. The
-   other five categories render as empty tracks labelled "Figure pending". The
-   City must supply the **final adopted** 2026–27 figures for every category.
-   Fair representation is a legal requirement here: do not omit large
-   expenditure categories, and do not estimate. Filling a row is a one-line
-   change — see the comment block above the chart. The accessible table below
-   the chart carries the same figures and must be updated with it.
+1. **Budget bar chart (§5).** The client supplied final adopted 2026–27
+   figures for Fire contract (Kern County) $1,148,836, Parks, buildings and
+   grounds $709,481, Administration and finance $2,431,096, Public works
+   $70,519, and Other essential services $902,511 (2026-09-13); all five are
+   now populated, with bar widths scaled against the largest figure on the
+   chart. **Police ($3.78M) is still the *proposed* budget figure** — the
+   City must supply the final adopted Police figure before launch. Fair
+   representation is a legal requirement here: do not omit large expenditure
+   categories, and do not estimate. Filling a row is a one-line change — see
+   the comment block above the chart. The accessible table below the chart
+   carries the same figures and must be updated with it.
 2. **Photography** — the agency supplied the hero, the police panel and the
    parks panel on 2026-09-03, and confirmed they are cleared for use; that
    authorization sits with the agency and the City. The files are stock

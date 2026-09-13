@@ -22,7 +22,7 @@ Six keys are already filled in from the Spanish nav labels the City supplied in 
 > ("Information about the Sales Tax Measure") does not, and would be truncated.
 > Every other string on this page can be as long as it needs to be.
 
-## Part 1 — Page strings (198)
+## Part 1 — Page strings (197)
 
 | Key | English |
 |---|---|
@@ -126,7 +126,6 @@ Six keys are already filled in from the Spanish nav labels the City supplied in 
 | `s5.chart.d` | Adopted 2026–27 budget. Figures shown in dollars. |
 | `s5.b1` | Police |
 | `s5.b2` | Fire contract (Kern County) |
-| `s5.pend` | Figure pending |
 | `s5.b3` | Parks, buildings and grounds |
 | `s5.b4` | Administration and finance |
 | `s5.b5` | Public works |
