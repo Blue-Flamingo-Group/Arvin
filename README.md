@@ -101,9 +101,11 @@ Search `index.html` for `todo` (the class) or `PENDING` to find every one.
    respectively, which is why neither is placed). The fire panel was filled on
    2026-09-13 with a supplied photo of an Arvin ladder fire truck
    (`assets/img/panel-fire.jpg`); the client confirmed it is cleared for use
-   (2026-09-13). **Two panels are still unfilled because no supplied photo matches
-   the subject:** communications/dispatch equipment and a youth or senior
-   program. Unused originals are kept in `assets/img/_originals/`.
+   (2026-09-13). The 911 Emergency Response panel was filled the same day
+   with a supplied photo (`assets/img/panel-911.jpg`); the client confirmed
+   it is cleared for use (2026-09-13). **One panel is still unfilled because
+   no supplied photo matches the subject:** a youth or senior program.
+   Unused originals are kept in `assets/img/_originals/`.
 
    Original note — the hero and all six service panels are placeholder blocks.
    Required shots: a wide Arvin photo (streetscape, aerial, or a three-image
