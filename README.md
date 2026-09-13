@@ -93,19 +93,23 @@ Search `index.html` for `todo` (the class) or `PENDING` to find every one.
    expenditure categories, and do not estimate. Filling a row is a one-line
    change — see the comment block above the chart. The accessible table below
    the chart carries the same figures and must be updated with it.
-2. **Photography** — the agency supplied the hero, the police panel, the roads
-   panel and the parks panel on 2026-09-03, and confirmed they are cleared for
-   use; that authorization sits with the agency and the City. The files are
-   stock preview comps (612px Getty/iStock preview size; the unused almond-orchard
+2. **Photography** — the agency supplied the hero, the police panel and the
+   parks panel on 2026-09-03, and confirmed they are cleared for use; that
+   authorization sits with the agency and the City. The files are stock
+   preview comps (612px Getty/iStock preview size; the unused almond-orchard
    and aerial-homes files carry a visible Shutterstock ID and a CRMLS watermark
    respectively, which is why neither is placed). The fire panel was filled on
    2026-09-13 with a supplied photo of an Arvin ladder fire truck
    (`assets/img/panel-fire.jpg`); the client confirmed it is cleared for use
    (2026-09-13). The 911 Emergency Response panel was filled the same day
    with a supplied photo (`assets/img/panel-911.jpg`); the client confirmed
-   it is cleared for use (2026-09-13). **One panel is still unfilled because
-   no supplied photo matches the subject:** a youth or senior program.
-   Unused originals are kept in `assets/img/_originals/`.
+   it is cleared for use (2026-09-13). The roads panel's original 2026-09-03
+   photo was replaced on 2026-09-13 with a new client-supplied photo of an
+   Arvin road at sunset (`assets/img/panel-roads.jpg`, cropped and resized
+   from the supplied original to the panel's 16:10 frame); the client
+   confirmed it is cleared for use (2026-09-13). **One panel is still
+   unfilled because no supplied photo matches the subject:** a youth or
+   senior program. Unused originals are kept in `assets/img/_originals/`.
 
    Original note — the hero and all six service panels are placeholder blocks.
    Required shots: a wide Arvin photo (streetscape, aerial, or a three-image
