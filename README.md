@@ -106,9 +106,12 @@ Search `index.html` for `todo` (the class) or `PENDING` to find every one.
    (`assets/img/panel-fire.jpg`); the client confirmed it is cleared for use
    (2026-09-13). The 911 Emergency Response panel was filled on 2026-09-13
    with a supplied photo of an officer and K9, then replaced on 2026-09-14
-   with a photo of the Arvin police vehicle fleet (`assets/img/panel-911.jpg`,
-   cropped and resized to the panel's 16:10 frame); the client confirmed the
-   replacement is cleared for use (2026-09-14). The roads panel's original
+   with a photo of the Arvin police vehicle fleet (`assets/img/panel-911-fleet.jpg`,
+   cropped and resized to the panel's 16:10 frame; renamed from
+   `panel-911.jpg` after the swap kept showing the old photo — the 24h
+   `Cache-Control` on `/assets/` in `vercel.json` was serving the stale file
+   at the old URL). The client confirmed the replacement is cleared for use
+   (2026-09-14). The roads panel's original
    2026-09-03
    photo was replaced on 2026-09-13 with a new client-supplied photo of an
    Arvin road at sunset (`assets/img/panel-roads.jpg`, cropped and resized
