@@ -104,9 +104,12 @@ Search `index.html` for `todo` (the class) or `PENDING` to find every one.
    respectively, which is why neither is placed). The fire panel was filled on
    2026-09-13 with a supplied photo of an Arvin ladder fire truck
    (`assets/img/panel-fire.jpg`); the client confirmed it is cleared for use
-   (2026-09-13). The 911 Emergency Response panel was filled the same day
-   with a supplied photo (`assets/img/panel-911.jpg`); the client confirmed
-   it is cleared for use (2026-09-13). The roads panel's original 2026-09-03
+   (2026-09-13). The 911 Emergency Response panel was filled on 2026-09-13
+   with a supplied photo of an officer and K9, then replaced on 2026-09-14
+   with a photo of the Arvin police vehicle fleet (`assets/img/panel-911.jpg`,
+   cropped and resized to the panel's 16:10 frame); the client confirmed the
+   replacement is cleared for use (2026-09-14). The roads panel's original
+   2026-09-03
    photo was replaced on 2026-09-13 with a new client-supplied photo of an
    Arvin road at sunset (`assets/img/panel-roads.jpg`, cropped and resized
    from the supplied original to the panel's 16:10 frame); the client
