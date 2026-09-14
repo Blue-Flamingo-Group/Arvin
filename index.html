@@ -4,15 +4,13 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<!-- REVIEW BUILD: noindexed here and via X-Robots-Tag in vercel.json.
-     Remove BOTH before public launch. See README "Go-live". -->
-<meta name="robots" content="noindex, nofollow" />
-
 <title>Measure H — City of Arvin Local Sales Tax Measure Information | November 3, 2026</title>
 <meta name="description" content="Read factual information about Measure H, the City of Arvin's proposed one-percent local sales tax measure, including estimated revenue, City services, accountability requirements, frequently asked questions and official election documents." />
 <meta name="theme-color" content="#182955" />
+<link rel="canonical" href="https://arvin-measure.vercel.app/" />
 
 <meta property="og:type" content="website" />
+<meta property="og:url" content="https://arvin-measure.vercel.app/" />
 <meta property="og:site_name" content="City of Arvin" />
 <meta property="og:title" content="Measure H — City of Arvin Local Sales Tax Measure Information" />
 <meta property="og:description" content="Factual, impartial information about Measure H, a proposed one-percent local transactions and use tax on the November 3, 2026 ballot." />
@@ -202,28 +200,6 @@ img{max-width:100%;height:auto;display:block}
 }
 .nav__drawer a:hover{color:#fff}
 
-/* language selector — top of page on mobile, per spec 4.2.
-   It lives in its own full-width bar directly above the nav row rather than
-   inside it: the link row then keeps the whole width at every desktop size,
-   and the sticky header stays one row tall so --nav-h stays small. */
-.lang-bar{background:var(--navy-950)}
-.lang-bar__in{
-  max-width:var(--maxw);margin:0 auto;padding:5px var(--gut);
-  display:flex;justify-content:flex-end
-}
-.lang{display:flex;align-items:center;gap:0;border:1px solid var(--navy-700);border-radius:7px;overflow:hidden;flex:none}
-.lang button{
-  font:inherit;font-size:13px;font-weight:700;padding:8px 13px;min-height:44px;
-  background:var(--navy-800);color:var(--slate-200);border:0;cursor:pointer
-}
-.lang button[aria-pressed="true"]{background:var(--gold);color:var(--navy-950)}
-.lang button:disabled{opacity:.45;cursor:not-allowed}
-.lang__note{
-  margin:0;background:var(--navy-950);color:var(--slate-200);
-  font-size:13px;padding:11px 0;border-bottom:1px solid var(--navy-800);display:none
-}
-.lang__note.is-on{display:block}
-
 /* ---------- hero ---------------------------------------------------------- */
 .hero{position:relative;background:var(--navy-950);color:#fff;overflow:hidden}
 .hero__img{position:absolute;inset:0;background:var(--navy-900);overflow:hidden}
@@ -359,7 +335,7 @@ img{max-width:100%;height:auto;display:block}
 .chart__track{background:var(--slate-050);border-radius:5px;height:34px;position:relative;overflow:hidden;border:1px solid var(--slate-100)}
 .chart__bar{height:100%;background:var(--navy-800);border-radius:4px 0 0 4px;display:flex;align-items:center;padding:0 11px;min-width:2px}
 .chart__v{font-size:13.5px;font-weight:700;color:#fff;white-space:nowrap}
-.chart__v--out{color:var(--navy-900);position:absolute;left:calc(var(--w) + 11px);top:50%;transform:translateY(-50%)}
+.chart__v--out{color:var(--navy-900);position:absolute;left:max(calc(var(--w) + 11px),33px);top:50%;transform:translateY(-50%)}
 .chart__foot{font-size:13.5px;color:var(--slate-500);border-top:1px solid var(--slate-100);margin-top:6px;padding-top:14px}
 .chart caption,.vh{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 
@@ -507,29 +483,15 @@ mark{background:#ffe9a8;color:inherit;padding:0 1px;border-radius:2px}
 .foot__grid ul{list-style:none;padding:0}
 .foot__grid li{margin-bottom:.45em}
 .foot__bot{border-top:1px solid var(--navy-800);margin-top:34px;padding:20px 0 30px;font-size:13.5px;color:var(--slate-400)}
-/* pending-asset markers. Deliberately loud, and deleted before launch — but
-   they must still clear 4.5:1 if any survives to production, so they carry the
-   small-text token on an opaque chip that works on white and on navy alike. */
-.todo{
-  color:var(--gold-800);font-weight:700;background:var(--gold-100);
-  padding:1px 6px;border-radius:4px
-}
-/* .doc span and .tbl td set their own colour, so the chip needs the token back */
-.doc span.todo,.tbl td.todo{color:var(--gold-800)}
+/* sign-up box (client request 2026-09-14) */
+.signup{padding:clamp(28px,4vw,44px) 0}
+.signup .box{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 28px}
+.signup .box p{margin:0;font-size:16.5px}
+.signup .box a.email{font-weight:700;overflow-wrap:anywhere}
 </style>
 </head>
 <body>
 <a class="skip" href="#main" data-i18n="a11y.skip">Skip to main content</a>
-
-<!-- ============================ LANGUAGE BAR ============================ -->
-<div class="lang-bar">
-  <div class="lang-bar__in">
-    <div class="lang">
-      <button type="button" id="langEn" aria-pressed="true">English</button>
-      <button type="button" id="langEs" aria-pressed="false" disabled>Español</button>
-    </div>
-  </div>
-</div>
 
 <!-- ============================ STICKY NAV ============================== -->
 <header class="nav">
@@ -550,7 +512,6 @@ mark{background:#ffe9a8;color:inherit;padding:0 1px;border-radius:2px}
       <a href="#cost" data-i18n="nav.cost">The Cost</a>
       <a href="#accountability" data-i18n="nav.accountability">Accountability</a>
       <a href="#faq" data-i18n="nav.faq">FAQ</a>
-      <a href="#documents" data-i18n="nav.docs">Official Documents</a>
     </nav>
 
     <button class="nav__toggle" type="button" id="navToggle" aria-expanded="false" aria-controls="navDrawer">
@@ -571,15 +532,8 @@ mark{background:#ffe9a8;color:inherit;padding:0 1px;border-radius:2px}
     <a href="#onepercent" data-i18n="nav.onepercent">What One Percent Means</a>
     <a href="#whopays" data-i18n="nav.whopays">Who Would Pay</a>
     <a href="#faq" data-i18n="nav.faq.full">Frequently Asked Questions</a>
-    <a href="#documents" data-i18n="nav.docs">Official Documents</a>
   </div>
 </header>
-
-<p class="lang__note" id="langNote">
-  <span class="wrap" style="display:block">
-    <span data-i18n="lang.pending">Spanish translation is being prepared by the City and will be published here. The full site will be available in both languages before the election.</span>
-  </span>
-</p>
 
 <main id="main">
 <a id="top"></a>
@@ -693,7 +647,7 @@ mark{background:#ffe9a8;color:inherit;padding:0 1px;border-radius:2px}
       <div class="cost__node" data-i18n="s3.n5">Technology</div>
       <div class="cost__node" data-i18n="s3.n6">Repairs and maintenance</div>
     </div>
-    <p class="cost__src" data-i18n="s3.src">Source: City of Arvin adopted annual budget. <span class="todo">[LINK PENDING — adopted budget page or PDF]</span></p>
+    <p class="cost__src" data-i18n="s3.src">Source: City of Arvin adopted annual budget.</p>
 
     <blockquote class="pull" data-i18n="s3.pull">The question before voters is whether Arvin should establish an additional source of locally controlled revenue for City services.</blockquote>
   </div>
@@ -771,24 +725,23 @@ mark{background:#ffe9a8;color:inherit;padding:0 1px;border-radius:2px}
     </div>
 
     <!-- ====================================================================
-         BUDGET BAR CHART — DATA FILL REQUIRED BEFORE LAUNCH.
+         BUDGET BAR CHART.
          Fire, Parks, Administration and finance, Public works, and Other
-         essential services now carry the FINAL ADOPTED 2026–27 figures
-         (client-supplied 2026-09-13). Police still carries the PROPOSED
-         budget figure from the spec ($3.78 million) — the City still owes
-         the final adopted Police figure; see README "Placeholders".
-         To fill a row: put the dollar amount in .chart__v, set the bar's
-         inline width to (amount / largest amount * 100)%, and delete the
-         "pending" class + label. Do not omit any large expenditure category —
-         fair representation is a legal requirement here, not a style note.
+         essential services carry the FINAL ADOPTED 2026–27 figures
+         (client-supplied 2026-09-13). Police carries the PROPOSED budget
+         figure ($3.78 million) and is labelled as such on the page; when the
+         City supplies the adopted figure, update .chart__v, the table cell,
+         and the footnote, then rescale every bar against the largest amount.
+         Do not omit any large expenditure category — fair representation is
+         a legal requirement here, not a style note.
          ==================================================================== -->
     <div class="chart" style="margin-top:30px" role="img" aria-labelledby="chartTitle chartDesc">
       <p id="chartTitle" style="font-weight:900;color:var(--navy-900);margin-bottom:4px" data-i18n="s5.chart.t">General Fund expenditures by category</p>
-      <p id="chartDesc" style="font-size:14px;color:var(--slate-500);margin-bottom:22px" data-i18n="s5.chart.d">Adopted 2026–27 budget. Figures shown in dollars.</p>
+      <p id="chartDesc" style="font-size:14px;color:var(--slate-500);margin-bottom:22px" data-i18n="s5.chart.d">Fiscal year 2026–27 budget. Figures shown in dollars.</p>
 
       <div class="chart__row">
         <div class="chart__lab" data-i18n="s5.b1">Police</div>
-        <div class="chart__track"><div class="chart__bar" style="width:100%"><span class="chart__v">$3.78 million</span></div></div>
+        <div class="chart__track"><div class="chart__bar" style="width:100%"><span class="chart__v">$3.78 million (proposed)</span></div></div>
       </div>
       <div class="chart__row">
         <div class="chart__lab" data-i18n="s5.b2">Fire contract (Kern County)</div>
@@ -812,8 +765,7 @@ mark{background:#ffe9a8;color:inherit;padding:0 1px;border-radius:2px}
       </div>
 
       <p class="chart__foot">
-        <span data-i18n="s5.chart.f">Fiscal year 2026–27 · Source: City of Arvin adopted annual budget.</span>
-        <span class="todo"> [PENDING — Police is still the proposed-budget figure; the City must supply the final adopted Police figure before launch.]</span>
+        <span data-i18n="s5.chart.f">Fiscal year 2026–27 · Source: City of Arvin annual budget. The Police figure reflects the proposed budget; all other figures reflect the adopted budget.</span>
       </p>
     </div>
 
@@ -821,9 +773,9 @@ mark{background:#ffe9a8;color:inherit;padding:0 1px;border-radius:2px}
     <div class="tblwrap" style="margin-top:18px">
       <table class="tbl">
         <caption data-i18n="s5.tbl.c">The same budget figures in table form.</caption>
-        <thead><tr><th scope="col" data-i18n="s5.tbl.h1">Category</th><th scope="col" data-i18n="s5.tbl.h2">Adopted 2026–27 amount</th></tr></thead>
+        <thead><tr><th scope="col" data-i18n="s5.tbl.h1">Category</th><th scope="col" data-i18n="s5.tbl.h2">2026–27 amount</th></tr></thead>
         <tbody>
-          <tr><th scope="row" data-i18n="s5.b1">Police</th><td>$3.78 million</td></tr>
+          <tr><th scope="row" data-i18n="s5.b1">Police</th><td>$3.78 million (proposed)</td></tr>
           <tr><th scope="row" data-i18n="s5.b2">Fire contract (Kern County)</th><td>$1,148,836</td></tr>
           <tr><th scope="row" data-i18n="s5.b3">Parks, buildings and grounds</th><td>$709,481</td></tr>
           <tr><th scope="row" data-i18n="s5.b4">Administration and finance</th><td>$2,431,096</td></tr>
@@ -837,7 +789,6 @@ mark{background:#ffe9a8;color:inherit;padding:0 1px;border-radius:2px}
       <p data-i18n="s5.clarify">The proposed 2026 measure is a new one-percent transactions and use tax. It should not be confused with any existing tax or revenue source.</p>
     </div>
 
-    <p style="margin-top:26px"><a class="btn btn--solid" href="#" data-i18n="s5.btn">View the Adopted City Budget</a> <span class="todo" style="font-size:14px">[URL PENDING]</span></p>
   </div>
 </section>
 
@@ -958,38 +909,6 @@ mark{background:#ffe9a8;color:inherit;padding:0 1px;border-radius:2px}
       <h3 style="color:#fff" data-i18n="s9.note.t">An important clarification about oversight</h3>
       <p style="color:var(--slate-200)" data-i18n="s9.note.b">The adopted ballot question and ordinance require independent audits and public disclosure. The ordinance does not expressly establish a citizens' oversight committee. The City Council could separately establish additional oversight or reporting procedures.</p>
     </div>
-
-    <h3 id="documents" style="margin-top:38px;scroll-margin-top:calc(var(--nav-h) + 12px)" data-i18n="s9.docs.t">Official documents</h3>
-    <p style="color:var(--slate-200);font-size:15.5px;max-width:66ch" data-i18n="s9.docs.b">Documents will be posted here as they become available.</p>
-    <div class="docs">
-      <div class="doc doc--empty">
-        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
-        <div><b data-i18n="s9.d1">Annual audit</b><span class="todo" data-i18n="s9.dpend">Not yet posted</span></div>
-      </div>
-      <div class="doc doc--empty">
-        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
-        <div><b data-i18n="s9.d2">Revenue report</b><span class="todo" data-i18n="s9.dpend">Not yet posted</span></div>
-      </div>
-      <div class="doc doc--empty">
-        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
-        <div><b data-i18n="s9.d3">Expenditure report</b><span class="todo" data-i18n="s9.dpend">Not yet posted</span></div>
-      </div>
-      <div class="doc doc--empty">
-        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
-        <div><b data-i18n="s9.d4">City Council presentation</b><span class="todo" data-i18n="s9.dpend">Not yet posted</span></div>
-      </div>
-      <div class="doc doc--empty">
-        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        <div><b data-i18n="s9.d5">Staff contact</b><span class="todo" data-i18n="s9.dpend">Not yet posted</span></div>
-      </div>
-    </div>
-
-    <div class="hero__cta" style="margin-top:32px">
-      <a class="btn btn--primary" href="#" data-i18n="s9.btn1">View City Budgets</a>
-      <a class="btn btn--ghost" href="#" data-i18n="s9.btn2">View Financial Reports</a>
-      <a class="btn btn--ghost" href="#" data-i18n="s9.btn3">Watch City Council Meetings</a>
-    </div>
-    <p style="font-size:14px;margin-top:12px" class="todo">[THREE URLS PENDING — City budgets page, financial reports page, Council meeting video page.]</p>
   </div>
 </section>
 
@@ -1016,7 +935,6 @@ mark{background:#ffe9a8;color:inherit;padding:0 1px;border-radius:2px}
       <p data-i18n="s10.threshold">Because the proposal is a general tax, it requires approval by a majority of votes cast on the measure — 50 percent plus one vote.</p>
     </div>
 
-    <p style="margin-top:26px"><a class="btn btn--outline" href="#" data-i18n="s10.btn">Read the full ordinance and official documents</a> <span class="todo" style="font-size:14px">[PENDING — accessible HTML or tagged PDF, with file size labelled.]</span></p>
   </div>
 </section>
 
@@ -1064,14 +982,26 @@ mark{background:#ffe9a8;color:inherit;padding:0 1px;border-radius:2px}
       <div class="faq__item"><h3 style="margin:0"><button class="faq__q" type="button" aria-expanded="false">What happens if it is not approved?</button></h3><div class="faq__a" hidden><p>The proposed tax would not take effect and the City would not receive the estimated measure revenue. The City would evaluate options such as expenditure reductions, use of reserves, deferred projects and maintenance, service-level changes, or additional grants and revenue strategies.</p></div></div>
       <div class="faq__item"><h3 style="margin:0"><button class="faq__q" type="button" aria-expanded="false">Does a "no" vote eliminate an existing tax?</button></h3><div class="faq__a" hidden><p>No. The measure proposes a new tax. A "no" vote prevents that new tax and does not repeal any other existing tax.</p></div></div>
       <div class="faq__item" data-kw="operative date start begin effective when"><h3 style="margin:0"><button class="faq__q" type="button" aria-expanded="false">When would the tax begin if approved?</button></h3><div class="faq__a" hidden><p>The operative date is governed by the ordinance and State administrative requirements. The City should post the confirmed date after election certification and coordination with the California Department of Tax and Fee Administration.</p></div></div>
-      <div class="faq__item"><h3 style="margin:0"><button class="faq__q" type="button" aria-expanded="false">Where can residents read the complete measure?</button></h3><div class="faq__a" hidden><p>The complete ordinance, resolution, ballot question, impartial analysis and other official documents will be posted in the Official Documents section of this page. Printed copies are also available from the City Clerk.</p></div></div>
+      <div class="faq__item"><h3 style="margin:0"><button class="faq__q" type="button" aria-expanded="false">Where can residents read the complete measure?</button></h3><div class="faq__a" hidden><p>The complete ordinance, resolution, ballot question, impartial analysis and other official documents are available from the Office of the City Clerk, 200 Campus Drive, Arvin, California 93203.</p></div></div>
       <div class="faq__item" data-kw="register registration vote-by-mail ballot polling vote center kern county elections deadline"><h3 style="margin:0"><button class="faq__q" type="button" aria-expanded="false">Where can voters obtain election information?</button></h3><div class="faq__a" hidden><p>Kern County Elections provides voter registration, vote-by-mail, ballot return options, vote centers and deadline information.</p></div></div>
-      <div class="faq__item" data-kw="contact phone email city clerk address who to call"><h3 style="margin:0"><button class="faq__q" type="button" aria-expanded="false">Who can answer questions about the measure?</button></h3><div class="faq__a" hidden><p>City of Arvin, Office of the City Clerk, 200 Campus Drive, Arvin, California 93203. Phone: <span class="todo">[PHONE NUMBER PENDING]</span>. Email: <span class="todo">[MEASURE-INFORMATION EMAIL PENDING]</span>.</p><p>Questions about whether a particular product or transaction is taxable should be directed to the California Department of Tax and Fee Administration.</p></div></div>
+      <div class="faq__item" data-kw="contact phone email city clerk address who to call"><h3 style="margin:0"><button class="faq__q" type="button" aria-expanded="false">Who can answer questions about the measure?</button></h3><div class="faq__a" hidden><p>City of Arvin, Office of the City Clerk, 200 Campus Drive, Arvin, California 93203.</p><p>To receive updates about Measure H by email, send a message to <a href="mailto:cvela@arvin.org?subject=Measure%20H%20updates">cvela@arvin.org</a>.</p><p>Questions about whether a particular product or transaction is taxable should be directed to the California Department of Tax and Fee Administration.</p></div></div>
     </div>
     <p class="faq__none" id="faqNone" hidden>No questions match that search. Try a different word, such as groceries, rent, audit or roads.</p>
   </div>
 </section>
 
+<!-- ============================ SIGN-UP BOX ============================== -->
+<section class="signup" id="updates" aria-labelledby="signupTitle">
+  <div class="wrap">
+    <div class="box box--note">
+      <div>
+        <h3 id="signupTitle" data-i18n="signup.t">Sign up here for updates to Measure H</h3>
+        <p data-i18n="signup.b">To receive updates about Measure H by email, send a message to <a class="email" href="mailto:cvela@arvin.org?subject=Measure%20H%20updates">cvela@arvin.org</a>.</p>
+      </div>
+      <a class="btn btn--solid" href="mailto:cvela@arvin.org?subject=Measure%20H%20updates" data-i18n="signup.btn">Email to sign up</a>
+    </div>
+  </div>
+</section>
 </main>
 
 <!-- ============================ FOOTER ==================================== -->
@@ -1081,7 +1011,7 @@ mark{background:#ffe9a8;color:inherit;padding:0 1px;border-radius:2px}
       <div>
         <h3>City of Arvin</h3>
         <p>Office of the City Clerk<br />200 Campus Drive<br />Arvin, California 93203</p>
-        <p>Phone: <span class="todo">[PENDING]</span><br />Email: <span class="todo">[PENDING]</span></p>
+        <p>Measure H updates: <a href="mailto:cvela@arvin.org?subject=Measure%20H%20updates">cvela@arvin.org</a></p>
       </div>
       <div>
         <h3>On this page</h3>

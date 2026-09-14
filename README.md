@@ -50,6 +50,13 @@ without re-checking.
 
 ## Spanish (EN/ES)
 
+**Status 2026-09-14: not published, and the language bar is off the page.** The
+client asked for every pending item removed before launch, so the English /
+Español bar and the "translation being prepared" notice were deleted from
+`index.html`. The `data-i18n` keys, the `ES` object and `TRANSLATION_COMPLETE`
+remain. To publish Spanish later, restore the language-bar markup and its CSS
+from git history (commit `ea72b35`), then follow the steps below.
+
 The translation mechanism is built and wired. It is **not** switched on, because
 partial Spanish on an official election page is worse than none.
 
@@ -67,9 +74,6 @@ itself, the pending notice disappears, and `<html lang>` switches with the
 toggle. Six keys are already filled from the Spanish nav labels the City
 supplied in the spec.
 
-Until then the Español button is disabled and a notice below the nav explains
-that the Spanish version is being prepared.
-
 **One hard constraint on the translation.** The header subtitle (`nav.sub`) sits
 in a fixed-width space with about 115px of headroom, and Spanish runs roughly
 twice the width of the English. Keep it to ~35 characters. The worksheet says so
@@ -81,22 +85,42 @@ The nav was measured in Spanish with the City's six supplied labels: it fits on
 one row at 1024, 1280 and 1440. The horizontal-nav breakpoint is 1100px — chosen
 because Spanish needs 1044.7px and 1024 misses it — so 1024-1099 uses the drawer.
 
-## Placeholders that must be resolved before launch
+## Removed for launch (2026-09-14)
 
-Search `index.html` for `todo` (the class) or `PENDING` to find every one.
+Everything that carried a `PENDING` marker or an unlinked button came off the
+page at the client's request, so the live site shows no visible gaps:
 
-1. **Budget bar chart (§5).** The client supplied final adopted 2026–27
+- Language bar and Spanish-pending notice (see above).
+- §3 "link pending" note on the budget source line.
+- §5 "View the Adopted City Budget" button (no URL supplied).
+- §9 Official Documents module (five "Not yet posted" slots) and the three
+  City-budgets / financial-reports / Council-video buttons (no URLs supplied).
+  The nav and drawer links to `#documents` went with it, and FAQ 8 now points
+  readers to the City Clerk instead of "the Official Documents section".
+- §10 "Read the full ordinance" button (no document supplied).
+- FAQ 31 and footer phone / measure-email placeholders.
+
+**Kept: the §5 budget chart.** Police still carries the proposed figure and is
+labelled "(proposed)" in the bar, the table and the footnote, so the page states
+exactly what it knows. Replace the figure and drop the label when the City
+supplies the adopted number, then rescale every bar against the largest amount.
+
+**Added: a Measure H updates sign-up box** (`section#updates`, between the FAQ
+and the footer), plus the same address in FAQ 31 and the footer contact column.
+All point to `cvela@arvin.org` via `mailto:` — a plain email link, not a form.
+
+## Still owed by the City (none of it blocking)
+
+1. **Final adopted Police figure for the budget chart (§5).** The client supplied final adopted 2026–27
    figures for Fire contract (Kern County) $1,148,836, Parks, buildings and
    grounds $709,481, Administration and finance $2,431,096, Public works
    $70,519, and Other essential services $902,511 (2026-09-13); all five are
-   now populated, with bar widths scaled against the largest figure on the
-   chart. **Police ($3.78M) is still the *proposed* budget figure** — the
-   City must supply the final adopted Police figure before launch. Fair
-   representation is a legal requirement here: do not omit large expenditure
-   categories, and do not estimate. Filling a row is a one-line change — see
-   the comment block above the chart. The accessible table below the chart
-   carries the same figures and must be updated with it.
-2. **Photography** — the agency supplied the hero, the police panel and the
+   populated. **Police ($3.78M) is the *proposed* budget figure** and is
+   labelled as such on the page. Fair representation is a legal requirement
+   here: do not omit large expenditure categories, and do not estimate. The
+   accessible table below the chart carries the same figures and must be
+   updated with it.
+2. **Photography (record of client clearance — resolved)** — the agency supplied the hero, the police panel and the
    parks panel on 2026-09-03, and confirmed they are cleared for use; that
    authorization sits with the agency and the City. The files are stock
    preview comps (612px Getty/iStock preview size; the unused almond-orchard
@@ -131,14 +155,16 @@ Search `index.html` for `todo` (the class) or `PENDING` to find every one.
    park or City facility, and a youth or senior program. Each needs a caption and
    descriptive alt text. They must be City-owned or rights-cleared — this is an
    official page. No AI-generated imagery of real officials or first responders.
-3. **City seal** — the nav shows a placeholder disc.
-4. **City Clerk phone number and measure-information email** — FAQ 31 and footer.
+3. **City seal** — resolved; the nav carries the client-supplied Measure H mark.
+4. **City Clerk phone number and measure-information email** — removed from
+   FAQ 31 and the footer; add back when supplied.
 5. **Four link targets** — adopted budget, City budgets page, financial reports
-   page, Council meeting video page.
+   page, Council meeting video page. The buttons were removed; restore them
+   from git history (commit `ea72b35`) with real URLs.
 6. **Official documents (§10)** — ordinance, resolution, ballot question,
    impartial analysis. Accessible HTML or tagged PDF, not scans, with file size
-   labelled on each link. The five slots in the §9 documents module are built to
-   receive future postings without a redesign.
+   labelled on each link. The §9 documents module was removed; restore it from
+   git history when there is something to post.
 7. **Written confirmation that no citizens' oversight committee exists.** If one
    is later formally adopted, §9 and FAQ 20 both change.
 8. **Named sign-off on copy neutrality** — City Attorney or City Clerk, on the
@@ -159,9 +185,11 @@ required terms all resolve, including **sunset**, which does not appear anywhere
 in the copy and reaches the expiration question through its synonym list.
 
 ## Go-live
-This build is **noindexed in two places** — the `robots` meta in `index.html` and
-the `X-Robots-Tag` header in `vercel.json`. Remove **both** before any public
-launch, and set `canonical` / `og:url` to the real address at the same time.
+**Live and indexable as of 2026-09-14.** The `robots` meta and the `X-Robots-Tag`
+header are both gone. `canonical` and `og:url` point at
+`https://arvin-measure.vercel.app/`; if the City moves the page to an arvin.org
+address, change both and add the domain in Vercel. Production is git-connected:
+a push to `main` deploys.
 
 ## Before making this repository public
 
