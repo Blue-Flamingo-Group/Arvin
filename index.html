@@ -1154,6 +1154,31 @@ mark{background:#ffe9a8;color:inherit;padding:0 1px;border-radius:2px}
     });
   }
 
+  /* --- in-page anchor links --------------------------------------------
+     A link to a fragment the address bar already carries is a no-op: the
+     browser considers itself "already there" and never re-runs the scroll.
+     So on any visit that already had #updates in the URL -- a second tap, a
+     shared link, a bookmark -- the footer and FAQ sign-up links did nothing.
+     On a phone that is invisible failure: the footer is taller than the
+     screen, so the sign-up box sits a full viewport above and nothing moves.
+     Drive the scroll ourselves for every in-page link, and put the cursor in
+     the email field so the visitor can see the link did something. */
+  document.addEventListener("click", function(e){
+    if(e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    var a = e.target && e.target.closest ? e.target.closest('a[href^="#"]') : null;
+    /* Leave the skip link alone: its native jump also moves the keyboard
+       focus start point into <main>, which is the whole point of it. */
+    if(!a || a.className === "skip") return;
+    var id = a.getAttribute("href").slice(1);
+    var target = id && document.getElementById(id);
+    if(!target) return;
+    e.preventDefault();
+    target.scrollIntoView();                      /* honours scroll-margin-top */
+    if(history.replaceState) history.replaceState(null, "", "#" + id);
+    var email = $("#signupEmail");
+    if(id === "updates" && email) email.focus({preventScroll:true});
+  });
+
   /* --- language toggle --- */
   var enBtn = $("#langEn"), esBtn = $("#langEs"), langNote = $("#langNote");
   var hasES = TRANSLATION_COMPLETE && Object.keys(ES).length > 0;
