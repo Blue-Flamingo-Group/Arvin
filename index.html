@@ -484,10 +484,22 @@ mark{background:#ffe9a8;color:inherit;padding:0 1px;border-radius:2px}
 .foot__grid li{margin-bottom:.45em}
 .foot__bot{border-top:1px solid var(--navy-800);margin-top:34px;padding:20px 0 30px;font-size:13.5px;color:var(--slate-400)}
 /* sign-up box (client request 2026-09-14) */
-.signup{padding:clamp(28px,4vw,44px) 0}
-.signup .box{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 28px}
-.signup .box p{margin:0;font-size:16.5px}
-.signup .box a.email{font-weight:700;overflow-wrap:anywhere}
+.signup{padding:clamp(28px,4vw,44px) 0;scroll-margin-top:calc(var(--nav-h) + 12px)}
+.signup .box p{font-size:16.5px}
+.signup__form{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}
+.signup__field{flex:1 1 220px;display:flex;flex-direction:column;gap:5px}
+.signup__field label{font-size:14px;font-weight:700;color:var(--navy-900)}
+.signup__field input{
+  font:inherit;font-size:16px;min-height:50px;padding:0 14px;color:var(--ink);
+  background:var(--white);border:1px solid var(--slate-200);border-radius:8px
+}
+.signup__submit{align-self:flex-end;flex:0 0 auto;min-height:50px;padding-top:0;padding-bottom:0}
+.signup__form[hidden]{display:none}
+.signup__status{margin:12px 0 0;font-size:15.5px;font-weight:700;color:var(--navy-900)}
+.signup__status[hidden]{display:none}
+.signup__status.is-error{color:var(--alert)}
+/* Honeypot: off-screen for people, present for bots. Not display:none — some bots skip those. */
+.signup__trap{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 </style>
 </head>
 <body>
@@ -984,7 +996,7 @@ mark{background:#ffe9a8;color:inherit;padding:0 1px;border-radius:2px}
       <div class="faq__item" data-kw="operative date start begin effective when"><h3 style="margin:0"><button class="faq__q" type="button" aria-expanded="false">When would the tax begin if approved?</button></h3><div class="faq__a" hidden><p>The operative date is governed by the ordinance and State administrative requirements. The City should post the confirmed date after election certification and coordination with the California Department of Tax and Fee Administration.</p></div></div>
       <div class="faq__item"><h3 style="margin:0"><button class="faq__q" type="button" aria-expanded="false">Where can residents read the complete measure?</button></h3><div class="faq__a" hidden><p>The complete ordinance, resolution, ballot question, impartial analysis and other official documents are available from the Office of the City Clerk, 200 Campus Drive, Arvin, California 93203.</p></div></div>
       <div class="faq__item" data-kw="register registration vote-by-mail ballot polling vote center kern county elections deadline"><h3 style="margin:0"><button class="faq__q" type="button" aria-expanded="false">Where can voters obtain election information?</button></h3><div class="faq__a" hidden><p>Kern County Elections provides voter registration, vote-by-mail, ballot return options, vote centers and deadline information.</p></div></div>
-      <div class="faq__item" data-kw="contact phone email city clerk address who to call"><h3 style="margin:0"><button class="faq__q" type="button" aria-expanded="false">Who can answer questions about the measure?</button></h3><div class="faq__a" hidden><p>City of Arvin, Office of the City Clerk, 200 Campus Drive, Arvin, California 93203.</p><p>To receive updates about Measure H by email, send a message to <a href="mailto:cvela@arvin.org?subject=Measure%20H%20updates">cvela@arvin.org</a>.</p><p>Questions about whether a particular product or transaction is taxable should be directed to the California Department of Tax and Fee Administration.</p></div></div>
+      <div class="faq__item" data-kw="contact phone email city clerk address who to call"><h3 style="margin:0"><button class="faq__q" type="button" aria-expanded="false">Who can answer questions about the measure?</button></h3><div class="faq__a" hidden><p>City of Arvin, Office of the City Clerk, 200 Campus Drive, Arvin, California 93203.</p><p>To receive updates about Measure H by email, use the <a href="#updates">sign-up form</a> on this page.</p><p>Questions about whether a particular product or transaction is taxable should be directed to the California Department of Tax and Fee Administration.</p></div></div>
     </div>
     <p class="faq__none" id="faqNone" hidden>No questions match that search. Try a different word, such as groceries, rent, audit or roads.</p>
   </div>
@@ -994,11 +1006,24 @@ mark{background:#ffe9a8;color:inherit;padding:0 1px;border-radius:2px}
 <section class="signup" id="updates" aria-labelledby="signupTitle">
   <div class="wrap">
     <div class="box box--note">
-      <div>
-        <h3 id="signupTitle" data-i18n="signup.t">Sign up here for updates to Measure H</h3>
-        <p data-i18n="signup.b">To receive updates about Measure H by email, send a message to <a class="email" href="mailto:cvela@arvin.org?subject=Measure%20H%20updates">cvela@arvin.org</a>.</p>
-      </div>
-      <a class="btn btn--solid" href="mailto:cvela@arvin.org?subject=Measure%20H%20updates" data-i18n="signup.btn">Email to sign up</a>
+      <h3 id="signupTitle" data-i18n="signup.t">Sign up here for updates to Measure H</h3>
+      <p data-i18n="signup.b">Enter your email address and the City will send you updates about Measure H. Your address is used only for these updates.</p>
+      <form class="signup__form" id="signupForm" method="post" action="/api/signup" novalidate>
+        <div class="signup__field">
+          <label for="signupName" data-i18n="signup.name">Name (optional)</label>
+          <input type="text" id="signupName" name="name" autocomplete="name" maxlength="120" />
+        </div>
+        <div class="signup__field">
+          <label for="signupEmail" data-i18n="signup.email">Email address</label>
+          <input type="email" id="signupEmail" name="email" autocomplete="email" inputmode="email" required maxlength="254" />
+        </div>
+        <div class="signup__trap" aria-hidden="true">
+          <label for="signupWebsite">Website</label>
+          <input type="text" id="signupWebsite" name="website" tabindex="-1" autocomplete="off" />
+        </div>
+        <button class="btn btn--solid signup__submit" type="submit" data-i18n="signup.btn">Sign up</button>
+      </form>
+      <p class="signup__status" id="signupStatus" role="status" aria-live="polite" hidden></p>
     </div>
   </div>
 </section>
@@ -1011,7 +1036,7 @@ mark{background:#ffe9a8;color:inherit;padding:0 1px;border-radius:2px}
       <div>
         <h3>City of Arvin</h3>
         <p>Office of the City Clerk<br />200 Campus Drive<br />Arvin, California 93203</p>
-        <p>Measure H updates: <a href="mailto:cvela@arvin.org?subject=Measure%20H%20updates">cvela@arvin.org</a></p>
+        <p><a href="#updates">Sign up for Measure H updates</a></p>
       </div>
       <div>
         <h3>On this page</h3>
@@ -1208,6 +1233,45 @@ mark{background:#ffe9a8;color:inherit;padding:0 1px;border-radius:2px}
   if(search) search.addEventListener("input", runSearch);
 
   /* --- persistent glance bar (appears once the hero is scrolled past) --- */
+  /* --- Measure H updates sign-up ---
+     Posts to /api/signup (see api/signup.js). The City's inbox address lives
+     only in the server environment, never in this file. Without JS the form
+     still posts normally and comes back with ?signup=ok|error. */
+  var form = $("#signupForm"), status = $("#signupStatus");
+  var MSG_OK = "Thank you. You are signed up for Measure H updates.";
+  var MSG_ERR = "Something went wrong and your request was not sent. Please try again in a moment.";
+  var MSG_EMAIL = "Please enter a valid email address.";
+  function showStatus(text, isError){
+    if(!status) return;
+    status.textContent = text;
+    status.classList.toggle("is-error", !!isError);
+    status.hidden = false;
+  }
+  if(form){
+    form.addEventListener("submit", function(ev){
+      ev.preventDefault();
+      var emailEl = $("#signupEmail"), nameEl = $("#signupName"), trapEl = $("#signupWebsite");
+      var email = emailEl ? emailEl.value.trim() : "";
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)){ showStatus(MSG_EMAIL, true); if(emailEl) emailEl.focus(); return; }
+      var btn = $(".signup__submit", form); if(btn) btn.disabled = true;
+      fetch("/api/signup", {
+        method:"POST",
+        headers:{ "Content-Type":"application/json", "Accept":"application/json" },
+        body: JSON.stringify({ email: email, name: nameEl ? nameEl.value.trim() : "", website: trapEl ? trapEl.value : "" })
+      }).then(function(r){ return r.ok ? r.json() : { ok:false }; })
+        .then(function(d){
+          if(d && d.ok){ showStatus(MSG_OK, false); form.reset(); form.hidden = true; }
+          else { showStatus(MSG_ERR, true); if(btn) btn.disabled = false; }
+        })
+        .catch(function(){ showStatus(MSG_ERR, true); if(btn) btn.disabled = false; });
+    });
+    var flag = /[?&]signup=(ok|error)\b/.exec(location.search);
+    if(flag){
+      if(flag[1] === "ok"){ showStatus(MSG_OK, false); form.hidden = true; }
+      else showStatus(MSG_ERR, true);
+    }
+  }
+
   var bar = $("#glance-bar"), openBtn = $("#glanceOpen"), closeBtn = $("#glanceClose");
   var hero = $(".hero"), dismissed = false;
   function updateGlance(){

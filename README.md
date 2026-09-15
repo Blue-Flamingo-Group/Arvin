@@ -105,9 +105,11 @@ labelled "(proposed)" in the bar, the table and the footnote, so the page states
 exactly what it knows. Replace the figure and drop the label when the City
 supplies the adopted number, then rescale every bar against the largest amount.
 
-**Added: a Measure H updates sign-up box** (`section#updates`, between the FAQ
-and the footer), plus the same address in FAQ 31 and the footer contact column.
-All point to `cvela@arvin.org` via `mailto:` — a plain email link, not a form.
+**Added: a Measure H updates sign-up form** (`section#updates`, between the FAQ
+and the footer; FAQ 31 and the footer link to it). See "Sign-up form" below.
+The City's inbox address is **never in the page source** — client feedback
+2026-09-14: a visible address gets scraped and spammed, and a `mailto:` button
+does nothing on devices without a mail app.
 
 ## Still owed by the City (none of it blocking)
 
@@ -169,6 +171,34 @@ All point to `cvela@arvin.org` via `mailto:` — a plain email link, not a form.
    is later formally adopted, §9 and FAQ 20 both change.
 8. **Named sign-off on copy neutrality** — City Attorney or City Clerk, on the
    record, before launch.
+
+## Sign-up form
+
+`api/signup.js` is a Vercel serverless function (Node, no dependencies). The
+page posts `{ name, email, website }` to `/api/signup`; the function validates
+the email, drops anything that filled the hidden `website` honeypot field
+(bots do, people cannot see it), and sends **one notification email** to the
+City's inbox via Resend, with `Reply-To` set to the subscriber so the Clerk can
+answer directly. Without JavaScript the form posts normally and the function
+redirects back to `/?signup=ok|error#updates`, which the page turns into the
+same status message.
+
+Environment variables on the Vercel project (set with `vercel env add`, values
+never in the repo):
+
+- `RESEND_API_KEY` — from the Syronius Resend account (Doppler `teardown/dev`).
+- `SIGNUP_TO` — the City inbox that receives sign-ups.
+- `SIGNUP_FROM` — the sender, on a domain verified in Resend. Currently
+  `Measure H Website <measureh@send.getteardown.com>`. To send from the site's
+  own domain instead, verify `arvinmeasureh.com` (or a subdomain) in Resend,
+  add the DNS records it asks for at GoDaddy, then change this value.
+
+There is no list, no storage and no unsubscribe mechanism: each sign-up is one
+email to the City. If volume ever warrants a real list, that is a separate
+build (Mailchimp or similar), not an extension of this function.
+
+Smoke test without emailing the City: submit the form with the honeypot filled
+(`website: "x"`) — the function returns success and sends nothing.
 
 ## Accessibility
 Built to the spec's WCAG requirements: skip link, correct heading order, keyboard
