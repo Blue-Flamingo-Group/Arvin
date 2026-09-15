@@ -185,11 +185,16 @@ required terms all resolve, including **sunset**, which does not appear anywhere
 in the copy and reaches the expiration question through its synonym list.
 
 ## Go-live
-**Live and indexable as of 2026-09-14.** The `robots` meta and the `X-Robots-Tag`
-header are both gone. `canonical` and `og:url` point at
-`https://arvin-measure.vercel.app/`; if the City moves the page to an arvin.org
-address, change both and add the domain in Vercel. Production is git-connected:
-a push to `main` deploys.
+**Live at https://arvinmeasureh.com since 2026-09-14.** The `robots` meta and
+the `X-Robots-Tag` header are both gone; `canonical` and `og:url` point at the
+real domain. Production is git-connected: a push to `main` deploys.
+
+- **Domain / DNS.** `arvinmeasureh.com` is registered by Blue Flamingo at
+  GoDaddy (nameservers `ns27/ns28.domaincontrol.com`): apex `A` →
+  `76.76.21.21`, `www` `CNAME` → `cname.vercel-dns.com`. Both hostnames are
+  attached to the Vercel project `arvin-measure` (scope `syronius-projects`);
+  Let's Encrypt certs issued; `www` 308-redirects to the apex. The old review
+  alias `arvin-measure.vercel.app` still resolves to the same deployment.
 
 ## Before making this repository public
 
