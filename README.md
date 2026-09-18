@@ -50,6 +50,14 @@ without re-checking.
 
 ## Spanish (EN/ES)
 
+**Status 2026-09-18: Google Translate is LIVE.** At the client's request an
+"Español" button in the nav drives Google Translate (container hidden, banner
+suppressed, `googtrans` cookie + reload). In Spanish the inline nav links yield
+to the "All Sections" drawer, and a small `GT_ES` map in the script pins strings
+Google mangles. A footer line says the English text is official. This is the
+machine fallback; the professional-translation path below is untouched and
+still the upgrade if the City funds it.
+
 **Status 2026-09-14: not published, and the language bar is off the page.** The
 client asked for every pending item removed before launch, so the English /
 Español bar and the "translation being prepared" notice were deleted from
