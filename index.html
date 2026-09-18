@@ -182,6 +182,21 @@ img{max-width:100%;height:auto;display:block}
   display:inline-flex;align-items:center;gap:8px;min-height:44px
 }
 .nav__toggle:hover{background:var(--navy-700)}
+.nav__lang{
+  background:transparent;color:#fff;border:1px solid var(--navy-700);
+  border-radius:7px;padding:9px 13px;font:inherit;font-size:14px;font-weight:700;cursor:pointer;
+  display:inline-flex;align-items:center;gap:7px;min-height:44px
+}
+.nav__lang:hover{background:var(--navy-800)}
+/* Google Translate widget: the page drives it through the googtrans cookie, so
+   its own dropdown and top banner stay hidden. */
+#google_translate_element{display:none}
+/* Google's Spanish labels run ~150px wider than the nav can hold at any
+   desktop width, so in Spanish the inline links yield to the "All Sections" drawer. */
+html.is-es .nav__links{display:none!important}
+.goog-te-banner-frame,.goog-te-balloon-frame,#goog-gt-tt,.VIpgJd-ZVi9od-ORHb-OEVmcd{display:none!important}
+body{top:0!important}
+.goog-text-highlight{background:none!important;box-shadow:none!important}
 /* 1100px, not 1024: the Spanish link row measures 1044.7px of content once the
    City's supplied labels are in, so anything narrower wraps to two rows. Below
    this the drawer takes over. */
@@ -525,6 +540,12 @@ mark{background:#ffe9a8;color:inherit;padding:0 1px;border-radius:2px}
       <a href="#accountability" data-i18n="nav.accountability">Accountability</a>
       <a href="#faq" data-i18n="nav.faq">FAQ</a>
     </nav>
+
+    <button class="nav__lang" type="button" id="langToggle" lang="es" translate="no" aria-label="Ver en español">
+      <svg class="ic" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+      Español
+    </button>
+    <div id="google_translate_element" aria-hidden="true"></div>
 
     <button class="nav__toggle" type="button" id="navToggle" aria-expanded="false" aria-controls="navDrawer">
       <svg class="ic" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
@@ -1067,6 +1088,7 @@ mark{background:#ffe9a8;color:inherit;padding:0 1px;border-radius:2px}
 
     <div class="foot__bot">
       <p style="margin:0">&copy; City of Arvin. Information current as of the date of posting.</p>
+      <p style="margin:8px 0 0;font-size:13px">Spanish is provided by Google Translate as a convenience. Translations may not be exact; the English text is the official version.</p>
     </div>
   </div>
 </footer>
@@ -1321,6 +1343,56 @@ mark{background:#ffe9a8;color:inherit;padding:0 1px;border-radius:2px}
   updateGlance();
 })();
 </script>
+<!-- Google Translate (Spanish). The Español button sets Google's own googtrans
+     cookie and reloads; the widget reads that cookie on init and translates the
+     page. English clears the cookie. No dropdown, no banner. -->
+<script>
+(function(){
+  "use strict";
+  var btn = document.getElementById("langToggle");
+  if(!btn) return;
+  function getLang(){
+    var m = document.cookie.match(/(?:^|;\s*)googtrans=\/en\/([a-z-]+)/);
+    return m ? m[1] : "en";
+  }
+  function setCookie(v, maxAge){
+    var host = location.hostname, parts = host.split("."), tail = parts.slice(-2).join(".");
+    var base = "googtrans=" + v + "; path=/; max-age=" + maxAge;
+    document.cookie = base;
+    if(parts.length > 1) document.cookie = base + "; domain=." + tail;
+  }
+  var inES = getLang() === "es";
+  if(inES){
+    document.documentElement.classList.add("is-es");
+    /* Strings Google gets wrong (it reads "Measure" as the verb). Pinned
+       Spanish, marked translate="no" so the widget leaves them alone. */
+    var GT_ES = {
+      "glance.t":"La medida de un vistazo", "glance.btn":"La medida de un vistazo",
+      /* Google's subtitle runs long enough to clip at every desktop width. */
+      "nav.sub":"Medida H \u2014 Impuesto sobre las ventas"
+    };
+    Object.keys(GT_ES).forEach(function(k){
+      Array.prototype.forEach.call(document.querySelectorAll('[data-i18n="'+k+'"]'), function(el){
+        el.textContent = GT_ES[k]; el.setAttribute("translate","no"); el.setAttribute("lang","es");
+      });
+    });
+    btn.lastChild.textContent = " English ";
+    btn.setAttribute("lang","en");
+    btn.setAttribute("aria-label","View in English");
+  }
+  btn.addEventListener("click", function(){
+    if(inES){ setCookie("/en/en", 0); }
+    else { setCookie("/en/es", 60*60*24*30); }
+    location.reload();
+  });
+  window.googleTranslateElementInit = function(){
+    new google.translate.TranslateElement({
+      pageLanguage:"en", includedLanguages:"es", autoDisplay:false
+    }, "google_translate_element");
+  };
+})();
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
 <!-- deploy-check 20260911-112931 -->
 </body>
 </html>
