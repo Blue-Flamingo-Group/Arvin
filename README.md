@@ -158,6 +158,18 @@ does nothing on devices without a mail app.
    (2026-09-13). **All six service panels are now filled.** Unused
    originals are kept in `assets/img/_originals/`.
 
+   **2026-10-01 photo changes (City request via Blue Flamingo):** the Arvin park
+   playground photo moved from Youth/Senior to Parks and Public Facilities. The
+   Police and the Youth/Senior panels now carry **AI-generated images**
+   (GPT Image 2.5 via Higgsfield, generated 2026-10-01 at the client's direction,
+   chosen by Sy from a six-candidate picker). Both were prompted and checked so
+   they show **no identifiable person, no face, no badge, insignia or readable
+   text** — a generic patrol vehicle on a residential street, and two pairs of
+   hands potting a seedling. The guardrail above (no AI imagery of real
+   officials or first responders) still stands; these depict no one. The
+   replaced stock photos (`panel-police.jpg`, `panel-parks.jpg`) are gone from
+   the deploy; the AI source PNGs sit in `_originals/` as `ai-*.png`.
+
    Original note — the hero and all six service panels are placeholder blocks.
    Required shots: a wide Arvin photo (streetscape, aerial, or a three-image
    panorama); then a police vehicle in the community, fire or emergency
